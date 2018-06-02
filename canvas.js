@@ -21,7 +21,6 @@ function isInCircle(click) {
             return i;
         }
     }
-
     return -1;
 }
 
