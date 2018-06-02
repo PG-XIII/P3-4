@@ -27,7 +27,7 @@ function isInCircle(click) {
 function draw_point() {
     ctx.beginPath();
     ctx.strokeStyle = 'blue';
-    ctx.lineWidth = '5';
+    ctx.lineWidth = '4';
     ctx.fillStyle = 'red';
     ctx.arc(point.x, point.y, point.radius, 0, 2 * Math.PI);
     ctx.stroke();
