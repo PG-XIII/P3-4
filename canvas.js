@@ -78,12 +78,12 @@ function solve_MMQ(grau) {
         b[i][0] = sum_pol_b(i);
     }
 
-    var res = math.usolve(a,b);
+    var res = math.lusolve(a,b);
     for (i = 0; i < res.length; i++) {
         res[i] = res[i][0];
     }
 
-    return res;
+    return res.reverse();
 }
 
 var canvas = document.getElementById('canvas');
