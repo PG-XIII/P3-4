@@ -43,49 +43,6 @@ function draw_points() {
     }
 }
 
-function sum_pol_a(grau) {
-    var res = 0;
-    for (i = 0; i < points.length; i++) {
-        res += Math.pow(points[i].x,grau);
-    }
-    return res;
-}
-
-function sum_pol_b(grau) {
-    var res = 0;
-    for (i = 0; i < points.length; i++) {
-        res += Math.pow(points[i].x,grau)*points[i].y;
-    }
-    return res;
-}
-
-function solve_MMQ(grau) {
-    var a = new Array(grau);
-    for (var i = 0; i < grau; i++) {
-        a[i] = new Array(grau);
-    }
-    for (i = 0; i < grau; i++) {
-        for (j = 0; j < grau; j++) {
-            a[i][j] = sum_pol_a(i+j);
-        }
-    }
-
-    var b = new Array(grau);
-    for (var i = 0; i < grau; i++) {
-        b[i] = new Array(1);
-    }
-    for (i = 0; i < grau; i++) {
-        b[i][0] = sum_pol_b(i);
-    }
-
-    var res = math.lusolve(a,b);
-    for (i = 0; i < res.length; i++) {
-        res[i] = res[i][0];
-    }
-
-    return res.reverse();
-}
-
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var point = {
