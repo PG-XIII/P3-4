@@ -76,6 +76,15 @@ canvas.addEventListener('mousemove', function(e) {
             y: e. offsetY
         }
         draw_points();
+
+        var cs = solve_MMQ(points, 5);
+        console.log(points);
+        var xs = [];
+        for (x = points[0].x; x <= points[points.length-1].x; x += 0.1) {
+            xs.push(x);
+        }
+        console.log(cs);
+        drawFunctionGraph(cs, xs);
     }
 });
 
