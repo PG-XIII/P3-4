@@ -21,7 +21,7 @@ function solve_MMQ(points, degree) {
     }
     for (i = 0; i < degree; i++) {
         for (j = 0; j < degree; j++) {
-            a[i][j] = sum_pol_a(i+j);
+            a[i][j] = sum_pol_a(points, i+j);
         }
     }
 
@@ -30,7 +30,7 @@ function solve_MMQ(points, degree) {
         b[i] = new Array(1);
     }
     for (i = 0; i < degree; i++) {
-        b[i][0] = sum_pol_b(i);
+        b[i][0] = sum_pol_b(points, i);
     }
 
     var res = math.lusolve(a,b);
