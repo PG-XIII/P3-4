@@ -41,7 +41,13 @@ function solve_MMQ(points, degree) {
     return res.reverse();
 }
 
-function drawFunctionGraph(cs, xs) {
+function drawFunctionGraph() {
+    var xs = [];
+    for (x = 0; x < canvas.width; x += 1) {
+        xs.push(x);
+    }
+
+
     ctx.beginPath();
     for (i = 0; i < xs.length-1; i++) {
         var y0 = 0;
@@ -57,7 +63,7 @@ function drawFunctionGraph(cs, xs) {
         ctx.moveTo(xs[i], y0)
         ctx.lineTo(xs[i+1], y1)
     }
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "#91ED80";
     ctx.lineWidth = "1";
     ctx.stroke();
 }

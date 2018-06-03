@@ -26,10 +26,10 @@ function isInCircle(click) {
 
 function draw_point() {
     ctx.beginPath();
-    ctx.strokeStyle = 'blue';
+    ctx.strokeStyle = '#9D4B95';
     ctx.lineWidth = '4';
-    ctx.fillStyle = 'red';
-    ctx.arc(point.x, point.y, point.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = '#9D4B95';
+    ctx.arc(point.x, point.y, point.radius, 0, 2*Math.PI);
     ctx.stroke();
     ctx.fill();
 }
@@ -48,10 +48,12 @@ var ctx = canvas.getContext('2d');
 var point = {
     x: 0,
     y: 0,
-    radius: 5
+    radius: 3
 };
 var move = -1;
-var points = []
+var points = [];
+var degree = 2;
+var cs = [];
 
 resizeToFit();
 
@@ -77,17 +79,26 @@ canvas.addEventListener('mousemove', function(e) {
         }
         draw_points();
 
-        var cs = solve_MMQ(points, 5);
-        console.log(points);
-        var xs = [];
-        for (x = points[0].x; x <= points[points.length-1].x; x += 0.1) {
-            xs.push(x);
-        }
-        console.log(cs);
-        drawFunctionGraph(cs, xs);
+        cs = solve_MMQ(points, degree);
+        drawFunctionGraph();
+        drawBezierCurve(findControlPoints(cs, points));
     }
 });
 
 canvas.addEventListener('mouseup', function(e) {
     move = -1;
+
+    cs = solve_MMQ(points, degree);
+    drawFunctionGraph();
+    drawBezierCurve(findControlPoints(cs, points));
+});
+
+var degreeSelector = document.getElementById("degreeSelector")
+degreeSelector.addEventListener("change", function() {
+    degree = parseInt(degreeSelector.value)+1;
+    draw_points();
+
+    cs = solve_MMQ(points, degree);
+    drawFunctionGraph();
+    drawBezierCurve(findControlPoints(cs, points));
 });

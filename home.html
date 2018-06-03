@@ -1,11 +1,35 @@
 <!DOCTYPE HTML>
 <html>
+    <head>
+        <link href="cascade.css" rel="stylesheet" type="text/css">
+    </head>
 
 <body>
 
     <div id="container">
         <canvas id="canvas" width="1000" height="1000"></canvas>
     </div>
+
+    <div id="menu">
+        <h3>Menu</h3>
+
+        <form>
+            <label>Grau: </label>
+            <select id="degreeSelector" name="degree">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </form>
+    </div>
+
     <script src="mathjs-4.4.2/package/dist/math.js"></script>
     <script src="canvas.js"></script>
     <script src="bezier_curve.js"></script>
