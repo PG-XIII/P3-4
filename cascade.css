@@ -5,8 +5,8 @@
     font-family: "Inter UI", sans-serif;
 }
 
-h3 {
-    color: #3D4F5E;
+h3, h4 {
+    color: #4D5F6E;
 }
 
 #container {
