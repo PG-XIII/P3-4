@@ -35,12 +35,21 @@ function draw_point() {
 }
 
 function draw_points() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (i = 0; i < points.length; i++) {
         point.x = points[i].x;
         point.y = points[i].y;
         draw_point();
     }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    cs = solve_MMQ(points, degree);
+
+    drawFunctionGraph();
+    drawBezierCurve(findControlPoints(cs, points));
+    draw_points();
 }
 
 var canvas = document.getElementById('canvas');
@@ -77,28 +86,20 @@ canvas.addEventListener('mousemove', function(e) {
             x: e.offsetX,
             y: e. offsetY
         }
-        draw_points();
 
-        cs = solve_MMQ(points, degree);
-        drawFunctionGraph();
-        drawBezierCurve(findControlPoints(cs, points));
+        draw();
     }
 });
 
 canvas.addEventListener('mouseup', function(e) {
     move = -1;
 
-    cs = solve_MMQ(points, degree);
-    drawFunctionGraph();
-    drawBezierCurve(findControlPoints(cs, points));
+    draw();
 });
 
 var degreeSelector = document.getElementById("degreeSelector")
 degreeSelector.addEventListener("change", function() {
     degree = parseInt(degreeSelector.value)+1;
-    draw_points();
 
-    cs = solve_MMQ(points, degree);
-    drawFunctionGraph();
-    drawBezierCurve(findControlPoints(cs, points));
+    draw();
 });
