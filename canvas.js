@@ -48,8 +48,8 @@ function draw() {
     cs = solve_MMQ(points, degree);
 
     drawFunctionGraph();
-    drawBezierCurve(findControlPoints(cs, points));
     draw_points();
+    drawBezierCurve(findControlPoints(cs, points));
 }
 
 var canvas = document.getElementById('canvas');
