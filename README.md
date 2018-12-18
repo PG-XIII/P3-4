@@ -1,6 +1,6 @@
 # PG-13
 
-Primeiro Projeto de Processamento Gráfico
+Primeiro Projeto de Processamento Gráfico  
 Disponível [Aqui](https://heitorcfelix.github.io/P3-4/)
 ### Especificação do Projeto: [Aproximação de uma Curva de Bézier Funcional](http://cin.ufpe.br/~if680/#P3-4)
 
